@@ -1,8 +1,8 @@
 const express = require('express')
 const router = express.Router()
-const controller = require('../controllers/musicasController')
+const controller = require('../controllers/gamesController')
 const cors = require('cors')
 
-router.put("/musicas/:id", cors(), controller.atualizar)
+router.put("/games/:id", cors(), controller.atualizar)
 
 module.exports= router
