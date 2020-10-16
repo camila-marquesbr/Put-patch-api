@@ -13,11 +13,24 @@ const atualizar = (request, response)=>{
 
     response.status(200).send(games.find(game => game.id === id))
     console.log(games)
-     
+}
 
+const update = (request, response) =>{
+    const gameAtualizacao = request.body
+    const id = parseInt(request.params.id)
+    const gameParaAtualizar = games.find(game=>game.id == id)
+
+    Object.keys(gameAtualizacao).forEach((chave)=>{
+        gameParaAtualizar[chave] = gameAtualizacao[chave]
+    })
+
+    response.status(200).send(gameParaAtualizar)
 }
 
 
+
+
 module.exports = {
-    atualizar
+    atualizar,
+    update
 }
